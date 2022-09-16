@@ -38,13 +38,14 @@ const useStyles = makeStyles((theme) => ({
   },
   navBar: {
     // backgroundColor: "#7a2048",
-    backgroundColor: "black",
+    boxShadow: "none",
+    backgroundColor: "transparent",
     // backgroundImage: "linear-gradient(180deg, #090c32, #000000d9)",
     // backgroundImage: `url("/footer.png")`,
     // backgroundRepeat: "no-repeat",
     // backgroundSize: "cover",
     color: "black",
-    padding: "10px 30px",
+    padding: "0px",
     [theme.breakpoints.down("xs")]: {
       padding: "3px 0",
     },

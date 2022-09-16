@@ -15,9 +15,9 @@ import Divider from '@material-ui/core/Divider';
 import { isMobile } from "react-device-detect";
 import TextField from "@material-ui/core/TextField";
 import { ContactsOutlined } from "@material-ui/icons";
-import banner from "../collage.png";
+import banner from "../ticket.png";
 import videoSrc from "../PlatinumEliteNFT.mp4";
-import bg from "../HEORE.jpg";
+import bg from "../bg.jpeg";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -170,11 +170,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imgContainer: {
-    maxWidth: 700,
+    // maxWidth: 300,
+    height: 700,
+    maxHeight: 700,
     display: "flex",
     justifyContent: "center",
     margin: 10,
     borderRadius: 30,
+    overflow: "hidden"
     // boxShadow: "0 0 30px 0 rgba(189,191,255,0.37)",
   },
 }));
@@ -186,7 +189,7 @@ function TopSection() {
   const [currentBalance, setCurrentBalance] = useState(0);
   const [totalSupply, setTotalSupply] = useState(0);
   const wei = 1000000000000000000;
-  const price = 0.25; // 0.07 -- for public sale 0.10
+  const price = 100; // 0.07 -- for public sale 0.10
 
   const { active, account, activate } = useWeb3React();
 
@@ -348,10 +351,10 @@ Try Different browser or Install Metamask.`);
           width: "100%",
           justifyContent: "center",
           backgroundColor: "black",
-          // backgroundImage: `url(${bg})`,
-          // backgroundRepeat: "no-repeat",
-          // backgroundSize: "cover",
-          // minHeight: "100vh",
+          backgroundImage: `url(${bg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          minHeight: "100vh",
           padding: "200px 0 50px",
         }}
       >
@@ -365,20 +368,20 @@ Try Different browser or Install Metamask.`);
           }}
         >
           <Typography component="div" className={classes.imgContainer}>
-            {/* <img
+            <img
               className={classes.img}
               src={banner}
               alt={"collage"}
               style={{ borderRadius: 30 }}
-            /> */}
-            <video
+            />
+            {/* <video
               src={videoSrc}
               width="100%"
               muted="true"
               autoplay="true"
               loop="true"
               style={{ borderRadius: 30 }}
-            />
+            /> */}
           </Typography>
         </Grid>
         <Grid
@@ -399,7 +402,7 @@ Try Different browser or Install Metamask.`);
               flexDirection: "column",
               // alignItems: "center",
               maxWidth: 500,
-              padding: 50,
+              padding: "30px 50px",
             }}
           >
             <Typography variant="h3" className={classes.h4}>
@@ -512,7 +515,7 @@ Try Different browser or Install Metamask.`);
                 40% DISCOUNT
               </Typography>
               <Typography variant="h5" className={classes.mint} style={{fontWeight: "normal", fontSize: 14, color: "green"}}>
-                -8 BUSD
+                {- (price * 40 / 100) * count} BUSD
               </Typography>
             </Typography>
             <Typography component="div" style={{display: "flex", justifyContent: "space-between"}}>
@@ -520,7 +523,7 @@ Try Different browser or Install Metamask.`);
                 TOTAL : 
               </Typography>
               <Typography variant="h5" className={classes.mint}>
-                100 BUSD
+                {price - (price * 40 / 100) * count} BUSD
               </Typography>
             </Typography>
             <Typography variant="h5" className={classes.mint} style={{textAlign: "center"}}>

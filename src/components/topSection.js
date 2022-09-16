@@ -207,6 +207,8 @@ function TopSection() {
   const Contract = new web3.eth.Contract(contractAbi, ContractAddress);
   const BUSDContract = new web3.eth.Contract(BUSDAbi, BUSDContractAddress);
 
+
+
   useEffect(() => {
     console.log(active, "jdshfjgsdjgfsgdfgjh");
     if (active) checkAllowance();
@@ -217,7 +219,7 @@ function TopSection() {
   async function checkAllowance() {
     try {
       let result = await BUSDContract.methods
-        .allowance(`${account}`, "0x887065c1C18A137d9cD93008e815a0c4B7eb1009")
+        .allowance(`${account}`, "0x814f24dF262041F7958cEaa0bDA9c48e0EaD853e")
         .call();
       console.log(result / wei);
       setAllowed(result / wei);
@@ -245,7 +247,7 @@ Try Different browser or Install Metamask.`);
 
       const accounts = await web3.eth.getAccounts();
 
-      let weiCount = count * 200 * wei;
+      let weiCount = count * 12 * wei;
 
       let balance = await BUSDContract.methods.balanceOf(accounts[0]).call();
 
@@ -255,7 +257,7 @@ Try Different browser or Install Metamask.`);
       }
 
       let result = await BUSDContract.methods
-        .approve("0x887065c1C18A137d9cD93008e815a0c4B7eb1009", `${weiCount}`)
+        .approve("0x814f24dF262041F7958cEaa0bDA9c48e0EaD853e", `${weiCount}`)
         .send({
           from: accounts[0],
           // value: web3.utils.toWei(`${count * price}`, "ether"),
@@ -552,6 +554,62 @@ Try Different browser or Install Metamask.`);
                 {active ? "Connected" : "Connect Wallet"}
               </Button>
             )}
+              {isMobile ? (
+                window.ethereum ? (
+                  !active ? (
+                    <Button
+                      color="inherit"
+                      // variant="contained"
+                      style={{ marginTop: 20 }}
+                      className={classes.menuButton}
+                      onClick={() => {
+                        allowed < count * 12 ? approveBUSD() : mint();
+                      }}
+                    >
+                      {allowed < count * 12 ? "Approve" : "Mint Now"}
+                    </Button>
+                  ) : (
+                    <Button
+                      color="inherit"
+                      // variant="contained"
+                      style={{ marginTop: 20 }}
+                      className={classes.menuButton}
+                      disabled={!count}
+                      onClick={() => {
+                        allowed < count * 12 ? approveBUSD() : mint();
+                      }}
+                    >
+                      {allowed < count * 12 ? "Approve" : "Mint Now"}
+                    </Button>
+                  )
+                ) : (
+                  <Button
+                    href="https://metamask.app.link/dapp/cryptorambo.io/mint/"
+                    color="inherit"
+                    // variant="contained"
+                    style={{ marginTop: 20 }}
+                    className={classes.menuButton}
+                    disabled={!count}
+                  >
+                    {allowed < count * 12 ? "Approve" : "Mint Now"}
+                  </Button>
+                )
+              ) : (
+                // active ? <Button color="inherit" variant="outlined" className={classes.menuButton} disabled={!count} onClick={mint} >Mint Now</Button> :
+                //   <Button color="inherit" variant="outlined" className={classes.menuButton} onClick={connect} >Connect Wallet</Button>
+                <Button
+                  color="inherit"
+                  // variant="contained"
+                  style={{ marginTop: 20 }}
+                  className={classes.menuButton}
+                  onClick={() => {
+                    allowed < count * 12 ? approveBUSD() : mint();
+                  }}
+                  disabled={!count}
+                >
+                  {allowed < count * 12 ? "Approve" : "Mint Now"}
+                </Button>
+              )}
             <Typography variant="h5" className={classes.mint} style={{textAlign: "center", color: "orange"}}>
               Limited to 30 per wallet.
             </Typography>
@@ -596,8 +654,8 @@ Try Different browser or Install Metamask.`);
               </Button> */}
 
               {/* Mint button */}
-{/* 
-              {isMobile ? (
+
+              {/* {isMobile ? (
                 window.ethereum ? (
                   !active ? (
                     <Button

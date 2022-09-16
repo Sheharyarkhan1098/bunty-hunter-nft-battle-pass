@@ -189,7 +189,7 @@ function TopSection() {
   const [currentBalance, setCurrentBalance] = useState(0);
   const [totalSupply, setTotalSupply] = useState(0);
   const wei = 1000000000000000000;
-  const price = 100; // 0.07 -- for public sale 0.10
+  const price = 20; // 0.07 -- for public sale 0.10
 
   const { active, account, activate } = useWeb3React();
 
@@ -523,7 +523,7 @@ Try Different browser or Install Metamask.`);
                 TOTAL : 
               </Typography>
               <Typography variant="h5" className={classes.mint}>
-                {price - (price * 40 / 100) * count} BUSD
+                {price * count - (price * 40 / 100) * count} BUSD
               </Typography>
             </Typography>
             <Typography variant="h5" className={classes.mint} style={{textAlign: "center"}}>

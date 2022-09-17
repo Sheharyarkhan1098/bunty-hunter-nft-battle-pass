@@ -43,8 +43,10 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     maxWidth: "100%",
+    paddingRight: 30,
     [theme.breakpoints.down("xs")]: {
       maxWidth: "90%",
+    paddingRight: 0,
     },
   },
   h3: {
@@ -175,12 +177,29 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: 700,
     display: "flex",
     scale: "1.2",
-    // justifyContent: "center",
     margin: 10,
     borderRadius: 30,
-    overflow: "hidden"
+    overflow: "hidden",
     // boxShadow: "0 0 30px 0 rgba(189,191,255,0.37)",
+    [theme.breakpoints.down("xs")]: {
+      scale: "1",
+    height: "auto",
+    justifyContent: "center",
+    },
   },
+  mainContainer: {
+          width: "100%",
+          justifyContent: "center",
+          backgroundColor: "black",
+          // backgroundImage: `url(${bg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          // minHeight: "100vh",
+          padding: "150px 50px 0px 0px",
+          [theme.breakpoints.down("xs")]: {
+            padding: "50px 0px 0px",
+          }
+  }
 }));
 
 function TopSection() {
@@ -350,16 +369,7 @@ Try Different browser or Install Metamask.`);
 
       <Grid
         container
-        style={{
-          width: "100%",
-          justifyContent: "center",
-          backgroundColor: "black",
-          // backgroundImage: `url(${bg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          // minHeight: "100vh",
-          padding: "150px 50px 0px 0px",
-        }}
+        className={classes.mainContainer}
       >
           <Grid
           item
@@ -375,7 +385,7 @@ Try Different browser or Install Metamask.`);
               className={classes.img}
               src={banner}
               alt={"collage"}
-              style={{ borderRadius: 30, paddingRight: 30 }}
+              style={{ borderRadius: 30 }}
             />
             {/* <video
               src={videoSrc}
@@ -463,7 +473,7 @@ Try Different browser or Install Metamask.`);
             </Typography> */}
 
             {/* mint counter */}
-            <Typography component="div" style={{ background: "rgba(0,0,0,0.8)", border: "1px solid grey", padding: "20px 40px 10px", borderRadius: 20, textAlign: "center"}}>
+            <Typography component="div" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid grey", padding: "20px 40px 10px", borderRadius: 20, textAlign: "center"}}>
             <Typography component="div" style={{display: "flex", justifyContent: "space-between"}}>
               <Typography variant="h5" className={classes.mint}>
                 Mint Battle Pass : 

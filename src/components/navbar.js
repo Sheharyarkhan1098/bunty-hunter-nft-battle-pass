@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
   },
   navBar: {
     // backgroundColor: "#7a2048",
-    boxShadow: "none",
-    backgroundColor: "transparent",
+    // boxShadow: "none",
+    backgroundColor: "black",
     // backgroundImage: "linear-gradient(180deg, #090c32, #000000d9)",
     // backgroundImage: `url("/footer.png")`,
     // backgroundRepeat: "no-repeat",
@@ -133,7 +133,7 @@ Try Different browser or Install Metamask.`);
         <Toolbar style={{ display: "flex", justifyContent: "center"}}>
           <Typography component="div" style={{ margin: "0 10px"}}>
             <a href="https://cryptorambo.io/">
-              <img src={logoRambo} width="150px" />
+              <img src={logoRambo} width="120px" />
             </a>
           </Typography>
           {/* <Typography variant="h4" className={classes.title}>

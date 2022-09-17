@@ -22,7 +22,7 @@ import bg from "../bg.jpeg";
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
-    borderRadius: 0,
+    borderRadius: 10,
     padding: 10,
     margin: "10px",
     color: "snow",
@@ -174,7 +174,8 @@ const useStyles = makeStyles((theme) => ({
     height: 700,
     maxHeight: 700,
     display: "flex",
-    justifyContent: "center",
+    scale: "1.2",
+    // justifyContent: "center",
     margin: 10,
     borderRadius: 30,
     overflow: "hidden"
@@ -353,18 +354,18 @@ Try Different browser or Install Metamask.`);
           width: "100%",
           justifyContent: "center",
           backgroundColor: "black",
-          backgroundImage: `url(${bg})`,
+          // backgroundImage: `url(${bg})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          minHeight: "100vh",
-          padding: "200px 0 50px",
+          // minHeight: "100vh",
+          padding: "150px 50px 0px 0px",
         }}
       >
           <Grid
           item
           lg={5}
           style={{
-            justifyContent: "center",
+            justifyContent: "flex-end",
             display: "flex",
             overflow: "hidden",
           }}
@@ -374,7 +375,7 @@ Try Different browser or Install Metamask.`);
               className={classes.img}
               src={banner}
               alt={"collage"}
-              style={{ borderRadius: 30 }}
+              style={{ borderRadius: 30, paddingRight: 30 }}
             />
             {/* <video
               src={videoSrc}
@@ -390,7 +391,7 @@ Try Different browser or Install Metamask.`);
           item
           lg={5}
           style={{
-            justifyContent: "center",
+            // justifyContent: "center",
             alignItems: "center",
             display: "flex",
           }}
@@ -402,9 +403,9 @@ Try Different browser or Install Metamask.`);
               display: "flex",
               justifyContent: "space-between",
               flexDirection: "column",
-              // alignItems: "center",
+              alignItems: "center",
               maxWidth: 500,
-              padding: "30px 50px",
+              padding: "30px 50px ",
             }}
           >
             <Typography variant="h3" className={classes.h4}>
@@ -462,10 +463,10 @@ Try Different browser or Install Metamask.`);
             </Typography> */}
 
             {/* mint counter */}
-            <Typography component="div" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid grey", padding: 20, borderRadius: 20, textAlign: "center"}}>
+            <Typography component="div" style={{ background: "rgba(0,0,0,0.8)", border: "1px solid grey", padding: "20px 40px 10px", borderRadius: 20, textAlign: "center"}}>
             <Typography component="div" style={{display: "flex", justifyContent: "space-between"}}>
               <Typography variant="h5" className={classes.mint}>
-                MINT BATTLE PASS : 
+                Mint Battle Pass : 
               </Typography>
               <Typography variant="h5" className={classes.mint}>
                 {totalSupply} / 10,000 NFTS
@@ -611,7 +612,14 @@ Try Different browser or Install Metamask.`);
                 </Button>
               )}
             <Typography variant="h5" className={classes.mint} style={{textAlign: "center", color: "orange"}}>
-              Limited to 30 per wallet.
+            <Button
+                  color="inherit"
+                  // variant="contained"
+                  style={{ marginTop: 20, width: "90%" }}
+                  className={classes.menuButton}
+                >
+                  {"Buy With Card"}
+                </Button>
             </Typography>
             </Typography>
             {/* <Typography component="div" style={{ display: "flex" }}>

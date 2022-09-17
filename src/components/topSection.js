@@ -34,8 +34,8 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#040b38",
     },
     "&:hover": {
-      background: "linear-gradient(yellow, red)",
-      color: "#1e2761",
+      background: "linear-gradient(#67ff0073, #ff000073)",
+      color: "white",
     },
   },
   title: {
@@ -138,7 +138,7 @@ const useStyles = makeStyles((theme) => ({
   decrementBtn: {
     // borderTopLeftRadius: 30,
     // borderBottomLeftRadius: 30,
-    borderRadius: 0,
+    borderRadius: 5,
     minWidth: 30,
     // backgroundColor: "#1e2761",
     color: "snow",
@@ -149,14 +149,14 @@ const useStyles = makeStyles((theme) => ({
       // backgroundColor: "grey",
     },
     "&:hover": {
-      background: "red",
-      color: "#1e2761",
+      background: "linear-gradient(#67ff0073, #ff000073)",
+      color: "white",
     },
   },
   incrementBtn: {
     // borderTopRightRadius: 30,
     // borderBottomRightRadius: 30,
-    borderRadius: 0,
+    borderRadius: 5,
     minWidth: 30,
     // backgroundColor: "#1e2761",
     color: "snow",
@@ -167,8 +167,8 @@ const useStyles = makeStyles((theme) => ({
       // backgroundColor: "grey",
     },
     "&:hover": {
-      background: "red",
-      color: "#1e2761",
+      background: "linear-gradient(#67ff0073, #ff000073)",
+      color: "white",
     },
   },
   imgContainer: {
@@ -207,7 +207,7 @@ function TopSection() {
   const [count, setCount] = useState(1);
   const [allowed, setAllowed] = useState(0);
   const [currentBalance, setCurrentBalance] = useState(0);
-  const [totalSupply, setTotalSupply] = useState(0);
+  const [totalSupply, setTotalSupply] = useState("-");
   const wei = 1000000000000000000;
   const price = 20; // 0.07 -- for public sale 0.10
 
@@ -621,11 +621,12 @@ Try Different browser or Install Metamask.`);
                   {allowed < count * 12 ? "Approve" : "Mint Now"}
                 </Button>
               )}
-            <Typography variant="h5" className={classes.mint} style={{textAlign: "center", color: "orange"}}>
+            <Typography variant="h5" className={classes.mint} style={{textAlign: "center", color: "white"}}>
+                  OR
             <Button
                   color="inherit"
                   // variant="contained"
-                  style={{ marginTop: 20, width: "90%" }}
+                  style={{ marginTop: 10, width: "90%" }}
                   className={classes.menuButton}
                 >
                   {"Buy With Card"}

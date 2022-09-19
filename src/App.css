@@ -37,6 +37,55 @@ body{
   color: #61dafb;
 }
 
+
+@media only screen and (max-width: 480px)
+{
+    body,.elHeadline,p
+  {
+     text-align: center !important;
+}  
+    .ccInputText,  div[data-title='email-title']  .elHeadline
+  {
+   text-align: left !important;
+  }
+}
+
+@media only screen and (max-width: 480px)
+{
+.elButton
+{
+  display: block !important;
+width: 100% !important;
+}
+}
+
+
+
+.elButton
+{
+  border: 0px!important;
+  -webkit-box-shadow: 0px 14px 23px 0px rgba(98,106,115,0.4)!important;
+-moz-box-shadow: 0px 14px 23px 0px rgba(98,106,115,0.4)!important;
+box-shadow: 0px 14px 23px 0px rgba(98,106,115,0.4)!important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-weight: 800;
+}
+
+.hsSize1
+{
+  line-height: 1.8;
+}
+
+.elVideoWrapper
+{
+  -webkit-box-shadow: 0px 29px 36px -19px rgba(0,0,0,0.48);
+-moz-box-shadow: 0px 29px 36px -19px rgba(0,0,0,0.48);
+box-shadow: 0px 29px 36px -19px rgba(0,0,0,0.48);
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -173,17 +173,20 @@ const useStyles = makeStyles((theme) => ({
   },
   imgContainer: {
     // maxWidth: 300,
-    height: 700,
+    backgroundImage: `url("${banner}")`,
+    backgroundPosition: "center",
+    width: 500,
+    height:700,
     maxHeight: 700,
     display: "flex",
-    scale: "1.2",
     margin: 10,
     borderRadius: 30,
     overflow: "hidden",
     // boxShadow: "0 0 30px 0 rgba(189,191,255,0.37)",
     [theme.breakpoints.down("xs")]: {
-      scale: "1",
-    height: "auto",
+    height: 500,
+    backgroundSize: "cover",
+      width: 300,
     justifyContent: "center",
     },
   },
@@ -380,13 +383,13 @@ Try Different browser or Install Metamask.`);
             overflow: "hidden",
           }}
         >
-          <Typography component="div" className={classes.imgContainer}>
-            <img
+          <div component="div" className={classes.imgContainer}>
+            {/* <img
               className={classes.img}
               src={banner}
               alt={"collage"}
               style={{ borderRadius: 30 }}
-            />
+            /> */}
             {/* <video
               src={videoSrc}
               width="100%"
@@ -395,7 +398,7 @@ Try Different browser or Install Metamask.`);
               loop="true"
               style={{ borderRadius: 30 }}
             /> */}
-          </Typography>
+          </div>
         </Grid>
         <Grid
           item
@@ -485,7 +488,7 @@ Try Different browser or Install Metamask.`);
             <hr style={{backgroundColor: "white", width: "100%", marginBottom: 20}} />
             <Typography component="div" style={{display: "flex", justifyContent: "space-between"}}>
               <Typography variant="h5" className={classes.mint}>
-                AMOUNT : 
+                Amount : 
               </Typography>
               <Typography variant="h5" className={classes.mint}>
               <Typography component="div" style={{ display: "flex" }}>
@@ -525,7 +528,7 @@ Try Different browser or Install Metamask.`);
             <hr style={{backgroundColor: "white", width: "100%"}} />
             <Typography component="div" style={{display: "flex", justifyContent: "space-between", marginBottom: 10}}>
               <Typography variant="h5" className={classes.mint} style={{fontWeight: "normal", fontSize: 14}}>
-                40% DISCOUNT
+                40% Discount
               </Typography>
               <Typography variant="h5" className={classes.mint} style={{fontWeight: "normal", fontSize: 14, color: "green"}}>
                 {- (price * 40 / 100) * count} BUSD
@@ -533,14 +536,14 @@ Try Different browser or Install Metamask.`);
             </Typography>
             <Typography component="div" style={{display: "flex", justifyContent: "space-between"}}>
               <Typography variant="h5" className={classes.mint}>
-                TOTAL : 
+                Total : 
               </Typography>
               <Typography variant="h5" className={classes.mint}>
                 {price * count - (price * 40 / 100) * count} BUSD
               </Typography>
             </Typography>
             <Typography variant="h5" className={classes.mint} style={{textAlign: "center"}}>
-              YOUR NFTS: {currentBalance}
+              Your NFTs: {currentBalance}
             </Typography>
             {window.ethereum ? (
               <Button
@@ -629,7 +632,7 @@ Try Different browser or Install Metamask.`);
                   style={{ marginTop: 10, width: "90%" }}
                   className={classes.menuButton}
                 >
-                  {"Buy With Card"}
+                  {"Purchase With Card"}
                 </Button>
             </Typography>
             </Typography>

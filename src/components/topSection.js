@@ -11,7 +11,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import Divider from '@material-ui/core/Divider';
+import Divider from "@material-ui/core/Divider";
 import { isMobile } from "react-device-detect";
 import TextField from "@material-ui/core/TextField";
 import { ContactsOutlined } from "@material-ui/icons";
@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px",
     color: "snow",
     fontWeight: "bolder",
+    textTranform: "capitalize",
     // border: "1px solid snow",
     backgroundColor: "red", //"#F2DFD8"
     "&:disabled": {
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 30,
     [theme.breakpoints.down("xs")]: {
       maxWidth: "90%",
-    paddingRight: 0,
+      paddingRight: 0,
     },
   },
   h3: {
@@ -176,7 +177,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url("${banner}")`,
     backgroundPosition: "center",
     width: 500,
-    height:700,
+    height: 700,
     maxHeight: 700,
     display: "flex",
     margin: 10,
@@ -184,25 +185,25 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     // boxShadow: "0 0 30px 0 rgba(189,191,255,0.37)",
     [theme.breakpoints.down("xs")]: {
-    height: 500,
-    backgroundSize: "cover",
+      height: 500,
+      backgroundSize: "cover",
       width: 300,
-    justifyContent: "center",
+      justifyContent: "center",
     },
   },
   mainContainer: {
-          width: "100%",
-          justifyContent: "center",
-          backgroundColor: "black",
-          // backgroundImage: `url(${bg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          // minHeight: "100vh",
-          padding: "150px 50px 0px 0px",
-          [theme.breakpoints.down("xs")]: {
-            padding: "50px 0px 0px",
-          }
-  }
+    width: "100%",
+    justifyContent: "center",
+    backgroundColor: "black",
+    // backgroundImage: `url(${bg})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    // minHeight: "100vh",
+    padding: "150px 50px 0px 0px",
+    [theme.breakpoints.down("xs")]: {
+      padding: "50px 0px 0px",
+    },
+  },
 }));
 
 function TopSection() {
@@ -229,8 +230,6 @@ function TopSection() {
   const BUSDContractAddress = process.env.REACT_APP_BUSD_CONTRACT;
   const Contract = new web3.eth.Contract(contractAbi, ContractAddress);
   const BUSDContract = new web3.eth.Contract(BUSDAbi, BUSDContractAddress);
-
-
 
   useEffect(() => {
     console.log(active, "jdshfjgsdjgfsgdfgjh");
@@ -370,11 +369,8 @@ Try Different browser or Install Metamask.`);
     <React.Fragment>
       <CssBaseline />
 
-      <Grid
-        container
-        className={classes.mainContainer}
-      >
-          <Grid
+      <Grid container className={classes.mainContainer}>
+        <Grid
           item
           lg={5}
           style={{
@@ -422,25 +418,30 @@ Try Different browser or Install Metamask.`);
             }}
           >
             <Typography variant="h3" className={classes.h4}>
-             Bounty Hunter
+              Bounty Hunter
             </Typography>
             <Typography variant="h5" className={classes.subHeading}>
-             - NFT BATTLE PASS -
+              - NFT BATTLE PASS -
             </Typography>
-          
-              <Typography variant="h6" className={classes.text}>
-                  This is the most exclusive Battle Pass
-                  we will ever release, only 10,000
-                  available.
-              </Typography>                  
-              <Typography variant="h6" className={classes.text}>
-                  Start earning $GWARS tokens for every
-                  enemy that you eliminate in the game.
-              </Typography>
-              <Typography variant="h6" className={classes.text}>
-                  40% discount for a limited time
-              </Typography>
-              <hr style={{backgroundColor: "white", width: "80%", marginBottom: 20}} />
+
+            <Typography variant="h6" className={classes.text}>
+              This is the most exclusive Battle Pass we will ever release, only
+              10,000 available.
+            </Typography>
+            <Typography variant="h6" className={classes.text}>
+              Start earning $GWARS tokens for every enemy that you eliminate in
+              the game.
+            </Typography>
+            <Typography variant="h6" className={classes.text}>
+              40% discount for a limited time
+            </Typography>
+            <hr
+              style={{
+                backgroundColor: "white",
+                width: "80%",
+                marginBottom: 20,
+              }}
+            />
             {/* <Typography variant="h6" className={classes.mint}>
               200 BUSD / NFT
             </Typography> */}
@@ -476,32 +477,53 @@ Try Different browser or Install Metamask.`);
             </Typography> */}
 
             {/* mint counter */}
-            <Typography component="div" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid grey", padding: "20px 40px 10px", borderRadius: 20, textAlign: "center"}}>
-            <Typography component="div" style={{display: "flex", justifyContent: "space-between"}}>
-              <Typography variant="h5" className={classes.mint}>
-                Mint Battle Pass : 
-              </Typography>
-              <Typography variant="h5" className={classes.mint}>
-                {totalSupply} / 10,000 NFTS
-              </Typography>
-            </Typography>
-            <hr style={{backgroundColor: "white", width: "100%", marginBottom: 20}} />
-            <Typography component="div" style={{display: "flex", justifyContent: "space-between"}}>
-              <Typography variant="h5" className={classes.mint}>
-                Amount : 
-              </Typography>
-              <Typography variant="h5" className={classes.mint}>
-              <Typography component="div" style={{ display: "flex" }}>
-              <Button
-                color="inherit"
-                // variant="outlined"
-                className={classes.decrementBtn}
-                disabled={count < 2}
-                onClick={() => setCount(count - 1)}
+            <Typography
+              component="div"
+              style={{
+                background: "rgba(255,255,255,0.15)",
+                border: "1px solid grey",
+                padding: "20px 40px 10px",
+                borderRadius: 20,
+                textAlign: "center",
+              }}
+            >
+              <Typography
+                component="div"
+                style={{ display: "flex", justifyContent: "space-between" }}
               >
-                -
-              </Button>
-              {/* <TextField
+                <Typography variant="h5" className={classes.mint}>
+                  Mint Battle Pass :
+                </Typography>
+                <Typography variant="h5" className={classes.mint}>
+                  {totalSupply} / 10,000 NFTS
+                </Typography>
+              </Typography>
+              <hr
+                style={{
+                  backgroundColor: "white",
+                  width: "100%",
+                  marginBottom: 20,
+                }}
+              />
+              <Typography
+                component="div"
+                style={{ display: "flex", justifyContent: "space-between" }}
+              >
+                <Typography variant="h5" className={classes.mint}>
+                  Amount :
+                </Typography>
+                <Typography variant="h5" className={classes.mint}>
+                  <Typography component="div" style={{ display: "flex" }}>
+                    <Button
+                      color="inherit"
+                      // variant="outlined"
+                      className={classes.decrementBtn}
+                      disabled={count < 2}
+                      onClick={() => setCount(count - 1)}
+                    >
+                      -
+                    </Button>
+                    {/* <TextField
                 id="outlined-basic"
                 variant="outlined"
                 type="nubmer"
@@ -510,64 +532,86 @@ Try Different browser or Install Metamask.`);
                 value={count}
                 className={classes.inputCount}
               /> */}
-              <Typography variant="h5" className={classes.inputCount}>
-                {count}
+                    <Typography variant="h5" className={classes.inputCount}>
+                      {count}
+                    </Typography>
+                    <Button
+                      color="inherit"
+                      // variant="outlined"
+                      className={classes.incrementBtn}
+                      disabled={count > 29}
+                      onClick={() => setCount(count + 1)}
+                    >
+                      +
+                    </Button>
+                  </Typography>
+                </Typography>
               </Typography>
-              <Button
-                color="inherit"
-                // variant="outlined"
-                className={classes.incrementBtn}
-                disabled={count > 29}
-                onClick={() => setCount(count + 1)}
+              <hr style={{ backgroundColor: "white", width: "100%" }} />
+              <Typography
+                component="div"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginBottom: 10,
+                }}
               >
-                +
-              </Button>
-            </Typography>
+                <Typography
+                  variant="h5"
+                  className={classes.mint}
+                  style={{ fontWeight: "bold", fontSize: 14 }}
+                >
+                  40% Discount
+                </Typography>
+                <Typography
+                  variant="h5"
+                  className={classes.mint}
+                  style={{ fontWeight: "bold", fontSize: 14, color: "green" }}
+                >
+                  {-((price * 40) / 100) * count} BUSD
+                </Typography>
               </Typography>
-            </Typography>
-            <hr style={{backgroundColor: "white", width: "100%"}} />
-            <Typography component="div" style={{display: "flex", justifyContent: "space-between", marginBottom: 10}}>
-              <Typography variant="h5" className={classes.mint} style={{fontWeight: "normal", fontSize: 14}}>
-                40% Discount
-              </Typography>
-              <Typography variant="h5" className={classes.mint} style={{fontWeight: "normal", fontSize: 14, color: "green"}}>
-                {- (price * 40 / 100) * count} BUSD
-              </Typography>
-            </Typography>
-            <Typography component="div" style={{display: "flex", justifyContent: "space-between"}}>
-              <Typography variant="h5" className={classes.mint}>
-                Total : 
-              </Typography>
-              <Typography variant="h5" className={classes.mint}>
-                {price * count - (price * 40 / 100) * count} BUSD
-              </Typography>
-            </Typography>
-            <Typography variant="h5" className={classes.mint} style={{textAlign: "center"}}>
-              Your NFTs: {currentBalance}
-            </Typography>
-            {window.ethereum ? (
-              <Button
-                color="inherit"
-                // variant="contained"
-                className={classes.menuButton}
-                style={{ marginTop: 20 }}
-                onClick={connect}
+              <Typography
+                component="div"
+                style={{ display: "flex", justifyContent: "space-between" }}
               >
-                {" "}
-                {active ? "Connected" : "Connect Wallet"}
-              </Button>
-            ) : (
-              <Button
-                color="inherit"
-                // variant="contained"
-                className={classes.menuButton}
-                style={{ marginTop: 20 }}
-                href={"https://metamask.app.link/dapp/cryptorambo.io/mint/"}
+                <Typography variant="h5" className={classes.mint}>
+                  Total :
+                </Typography>
+                <Typography variant="h5" className={classes.mint}>
+                  {price * count - ((price * 40) / 100) * count} BUSD
+                </Typography>
+              </Typography>
+              <Typography
+                variant="h5"
+                className={classes.mint}
+                style={{ textAlign: "center" }}
               >
-                {" "}
-                {active ? "Connected" : "Connect Wallet"}
-              </Button>
-            )}
+                Your NFTs: {currentBalance}
+              </Typography>
+              {window.ethereum ? (
+                <Button
+                  color="inherit"
+                  // variant="contained"
+                  className={classes.menuButton}
+                  style={{ marginTop: 20 }}
+                  onClick={connect}
+                >
+                  {" "}
+                  {active ? "Connected" : "Connect Wallet"}
+                </Button>
+              ) : (
+                <Button
+                  color="inherit"
+                  // variant="contained"
+                  className={classes.menuButton}
+                  style={{ marginTop: 20 }}
+                  href={"https://metamask.app.link/dapp/cryptorambo.io/mint/"}
+                >
+                  {" "}
+                  {active ? "Connected" : "Connect Wallet"}
+                </Button>
+              )}
               {isMobile ? (
                 window.ethereum ? (
                   !active ? (
@@ -624,9 +668,13 @@ Try Different browser or Install Metamask.`);
                   {allowed < count * 12 ? "Approve" : "Mint Now"}
                 </Button>
               )}
-            <Typography variant="h5" className={classes.mint} style={{textAlign: "center", color: "white"}}>
-                  OR
-            <Button
+              <Typography
+                variant="h5"
+                className={classes.mint}
+                style={{ textAlign: "center", color: "white" }}
+              >
+                OR
+                <Button
                   color="inherit"
                   // variant="contained"
                   style={{ marginTop: 10, width: "90%" }}
@@ -634,7 +682,7 @@ Try Different browser or Install Metamask.`);
                 >
                   {"Purchase With Card"}
                 </Button>
-            </Typography>
+              </Typography>
             </Typography>
             {/* <Typography component="div" style={{ display: "flex" }}>
               <Button
@@ -732,7 +780,6 @@ Try Different browser or Install Metamask.`);
             </Typography>
           </Typography>
         </Grid>
-      
       </Grid>
     </React.Fragment>
   );

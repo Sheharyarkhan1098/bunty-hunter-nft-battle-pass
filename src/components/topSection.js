@@ -679,6 +679,7 @@ Try Different browser or Install Metamask.`);
                   // variant="contained"
                   style={{ marginTop: 10, width: "90%" }}
                   className={classes.menuButton}
+                  href="https://go.groundwars.io/purchase"
                 >
                   {"Purchase With Card"}
                 </Button>

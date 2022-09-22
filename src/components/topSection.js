@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px",
     color: "snow",
     fontWeight: "bolder",
-    textTranform: "capitalize",
+    textTransform: "capitalize",
     // border: "1px solid snow",
     backgroundColor: "red", //"#F2DFD8"
     "&:disabled": {
@@ -587,7 +587,7 @@ Try Different browser or Install Metamask.`);
                 className={classes.mint}
                 style={{ textAlign: "center" }}
               >
-                Your NFTs: {currentBalance}
+                Your NFTs : {currentBalance}
               </Typography>
               {window.ethereum ? (
                 <Button
